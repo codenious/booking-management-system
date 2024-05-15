@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #C5CAE9">
+    <div class="container-fluid">
+        <a class="navbar-brand font-monospace" href="#" >MyBooks</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/home/add}">AddBook</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br/><br/><br/><br/>
+
+<div class="container">
+    <div class="row">
+        <div class="col" th:each="bookDtoList: ${bookDtoList}">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${bookDtoList.bookName}">Card title</h5>
+                    <p class="card-text" th:text="${bookDtoList.description}">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" > <strong> Book By:</strong> <span  th:text="${bookDtoList.writerName}"></span></li>
+                </ul>
+                <div class="card-body">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
